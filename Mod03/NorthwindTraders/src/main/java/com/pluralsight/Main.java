@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/northwind";
         String user = "root";
-        String password = "yearup";
+        String password = ""; 
 
         Scanner scanner = new Scanner(System.in);
         int option = -1;
