@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/northwind";
         String user = "root";
-        String password = ""; 
+        String password = "";
 
         Scanner scanner = new Scanner(System.in);
         int option = -1;
@@ -47,7 +47,8 @@ public class Main {
         """;
 
         try (
-                Connection connection = DriverManager.getConnection(url, user, password);
+                Connection connection = Database.getDataSource().getConnection();
+// Connection connection = DriverManager.getConnection(url, user, password);
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet results = statement.executeQuery()
         ) {
@@ -76,7 +77,9 @@ public class Main {
         """;
 
         try (
-                Connection connection = DriverManager.getConnection(url, user, password);
+                Connection connection = Database.getDataSource().getConnection();
+
+                // Connection connection = DriverManager.getConnection(url, user, password);
                 PreparedStatement statement = connection.prepareStatement(sql);
                 ResultSet results = statement.executeQuery()
         ) {
@@ -107,7 +110,8 @@ public class Main {
         """;
 
         try (
-                Connection connection = DriverManager.getConnection(url, user, password);
+                Connection connection = Database.getDataSource().getConnection();
+                //Connection connection = DriverManager.getConnection(url, user, password);
                 PreparedStatement categoryStmt = connection.prepareStatement(categorySql);
                 ResultSet categories = categoryStmt.executeQuery()
         ) {
